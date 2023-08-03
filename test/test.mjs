@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { L }  from '../src/index.mjs'
+import { L }  from '../dist/index.min.js'
 describe('公共库测试', () => {
 
   it("1.includeSlash = false value = https://127.0.0.1:8080/ => https://127.0.0.1:8080 value = https://127.0.0.1:8080 => https://127.0.0.1:8080 includeSlash = true value = https://127.0.0.1:8080/ => https://127.0.0.1:8080/ value = https://127.0.0.1:8080 => https://127.0.0.1:8080/", () => {
