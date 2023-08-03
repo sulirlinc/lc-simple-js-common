@@ -1,0 +1,31 @@
+{
+  "name": "lc-simple-js-common",
+  "version": "1.0.0",
+  "description": "simple-js-common",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "mkdir dist & npx terser src/index.mjs -o ./dist/index.min.js --compress --mangle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulirlinc/lc-simple-js-common.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Linc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sulirlinc/lc-simple-js-common/issues"
+  },
+  "homepage": "https://github.com/sulirlinc/lc-simple-js-common#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "chai": "^4.3.7",
+    "mocha": "10.2.0",
+    "terser": "^5.19.2"
+  },
+  "type": "module"
+}
