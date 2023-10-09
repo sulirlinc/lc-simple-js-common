@@ -16,9 +16,41 @@ const useDebounce = (obj, fun, options) => {
   }
 }
 
+/**
+ * 日期格式化
+ * @param date
+ * @param format
+ * @returns {void | string | *}
+ */
+const dateFormatter = (date, format) => {
+  if (/(y+)/.test(format)) {
+    format = format.replace(RegExp.$1,
+        (date.getFullYear() + '').substr(4 - RegExp.$1.length))
+  }
+  const o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds()
+  }
+  for (let k in o) {
+    if (new RegExp(`(${ k })`).test(format)) {
+      const str = o[k] + ''
+      format = format.replace(RegExp.$1,
+          (RegExp.$1.length === 1) ? str : padLeftZero(str))
+    }
+  }
+  return format
+}
 
 const L = {
   useDebounce,
+  now: (arg = {}) => arg.format ? dateFormatter(new Date(), arg.format)
+      : parseInt((new Date() / 1000) + ''),
+  getCurrentDay: (arg = {}) => arg.format ? dateFormatter(
+      new Date(new Date().toLocaleDateString()), arg.format) : parseInt(
+      (new Date(new Date().toLocaleDateString()) / 1000) + ''),
   replacePathLastSlash({ value = '', includeSlash = true }) {
     value = value.replace(/^([^|]+)(\/)$/g, '$1')
     return value + (includeSlash ? '/' : '')

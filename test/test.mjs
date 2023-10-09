@@ -33,4 +33,13 @@ describe('公共库测试', () => {
   it("4.随机指定大小的数", () => {
     console.log(L.randomNumberValue(10))
   })
+
+  it("5.获取当前秒的时间戳", () => {
+    assert.equal(L.now(), parseInt(new Date() / 1000))
+  })
+
+  it("6.获取当天日期", () => {
+    console.log(L.now())
+    console.log(L.getCurrentDay())
+  })
 })
