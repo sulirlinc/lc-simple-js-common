@@ -16,6 +16,21 @@ const useDebounce = (obj, fun, options) => {
   }
 }
 
+const buildRandomCode = (length = 8,
+    characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') => {
+  let result = ''
+  const charactersLength = characters.length
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  }
+  return result
+}
+
+const buildRandomSymbolCode = (length) =>{
+  return buildRandomCode(length,
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*.,')
+}
+
 /**
  * 日期格式化
  * @param date
@@ -46,6 +61,16 @@ const dateFormatter = (date, format) => {
 
 const L = {
   useDebounce,
+  randomCode(length) {
+    return buildRandomCode(length)
+  },
+  randomNumber(length){
+    return buildRandomCode(length, '0123456789')
+  },
+
+  randomSymbolCode(length) {
+    return buildRandomSymbolCode(length)
+  },
   now: (arg = {}) => arg.format ? dateFormatter(new Date(), arg.format)
       : parseInt((new Date() / 1000) + ''),
   getCurrentDay: (arg = {}) => arg.format ? dateFormatter(
