@@ -1,6 +1,6 @@
 {
   "name": "lc-simple-js-common",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "simple-js-common",
   "main": "dist/index.min.js",
   "scripts": {
