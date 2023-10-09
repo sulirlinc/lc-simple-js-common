@@ -41,6 +41,32 @@ describe('公共库测试', () => {
   it("4.随机指定大小的数", () => {
     console.log(L.randomNumberValue(10))
   })
+
+  it("5.获取当前秒的时间戳", () => {
+    assert.equal(L.now(), parseInt(new Date() / 1000))
+  })
+
+  it("6.获取当天日期", () => {
+    console.log(L.getCurrentDay())
+  })
+  it("7.随机字符数字", () => {
+    let data = L.randomCode();
+    console.log(data)
+    assert.isOk(/^[a-z0-9A-Z]{8}$/.test(data),"默认8位长度的随机值")
+    assert.isOk(/^[a-z0-9A-Z]{6}$/.test(L.randomCode(6)),"默认8位长度的随机值")
+  })
+  it("8.随机数字", () => {
+    let data = L.randomNumber();
+    console.log(data)
+    assert.isOk(/^[0-9]{8}$/.test(data),"默认8位长度的随机值")
+    assert.isOk(/^[0-9]{11}$/.test(L.randomNumber(11)),"默认8位长度的随机值")
+  })
+  it("9.随机带符号的", () => {
+    let data = L.randomSymbolCode();
+    assert.isOk(data.length === 8,"默认8位长度的随机值")
+    console.log(data) // "默认8位长度的随机值"
+    console.log(L.randomSymbolCode(16)) // "默认8位长度的随机值"
+  })
 })
 ```
 更多事例与覆盖请查看单元测试``test\test.js``
