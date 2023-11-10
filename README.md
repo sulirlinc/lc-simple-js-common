@@ -67,6 +67,10 @@ describe('公共库测试', () => {
     console.log(data) // "默认8位长度的随机值"
     console.log(L.randomSymbolCode(16)) // "默认8位长度的随机值"
   })
+
+  it("10.date format", () => {
+    console.log(L.dateFormatter(new Date(),'yyyy-MM-dd hh:mm:ss'))
+  })
 })
 ```
 更多事例与覆盖请查看单元测试``test\test.js``

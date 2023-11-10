@@ -30,7 +30,9 @@ const buildRandomSymbolCode = (length) =>{
   return buildRandomCode(length,
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*.,')
 }
-
+const padLeftZero = (str) => {
+  return ('00' + str).substr(str.length)
+}
 /**
  * 日期格式化
  * @param date
@@ -67,7 +69,7 @@ const L = {
   randomNumber(length){
     return buildRandomCode(length, '0123456789')
   },
-
+  dateFormatter,
   randomSymbolCode(length) {
     return buildRandomSymbolCode(length)
   },
